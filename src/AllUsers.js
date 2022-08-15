@@ -89,7 +89,7 @@ function AllUsers() {
                       <div class="card my-2 list-group-item shadow-lg">
                         <div class="card-body body-grey">
                           <div class="row align-items-center border-green">
-                            <div class="col-sm-4">
+                            <div class="col-sm-4 border-green">
                               <img
                                 src={ava7}
                                 class="contact-image"
@@ -97,9 +97,10 @@ function AllUsers() {
                               />
                             </div>
 
-                            <div class="col-sm-7">
+                            <div class="col-sm-7 border-purple">
                               <ul class="list-group">
                                 <li class="list-group-item">
+                                  Customer Id:{" "}
                                   <span class="fw-bold">{e.customer_id}</span>
                                 </li>
                                 <li class="list-group-item ">

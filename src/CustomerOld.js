@@ -121,66 +121,63 @@ const Customer = () => {
         return (
           <div>
             <div class="d-flex flex-row justify-content-space-around  mt-5 border-orange ">
-              <div class="d-flex flex-column w-15 bd-highlight m-2 pt-4 border-green"></div>
+              <div class="d-flex flex-column w-15 bd-highlight m-2 pt-4 border-green">
+                <button
+                  class="btn btn-sm btn-danger mt-3 mb-3"
+                  onClick={clickyDelete}
+                >
+                  Delete Customer
+                </button>
+                <h5>
+                  {" "}
+                  <ul>
+                    <li>
+                      <div>
+                        Customer Id:
+                        <span class="fw-bold no-underline">
+                          {" "}
+                          {e.customer_id}
+                        </span>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        Name:
+                        <span class="fw-bold no-underline"> {e.name} </span>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        Email:
+                        <span class="fw-bold no-underline"> {e.email} </span>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        VAT Number:
+                        <span class="fw-bold no-underline">
+                          {" "}
+                          {e.vat_number}
+                        </span>
+                      </div>
+                    </li>
+                  </ul>
+                </h5>
+              </div>
             </div>
 
             <div class="d-flex flex-row justify-content-around bd-highlight m-2 border-orange ">
               <div class="d-flex flex-column w-50 bd-highlight m-2 border-green">
-                <div class="d-flex flex-row justify-content-center bd-highlight m-2 border-orange ">
-                  <div class="d-flex flex-column bd-highlight mt-4 border-purple">
-                    <button
-                      class="btn btn-sm btn-danger mt-3 mb-3"
-                      onClick={clickyDelete}
-                    >
-                      Delete Customer
-                    </button>
-                    <h5>
-                      {" "}
-                      <ul>
-                        <li>
-                          <div>
-                            Customer Id:
-                            <span class="fw-bold no-underline">
-                              {" "}
-                              {e.customer_id}
-                            </span>
-                          </div>
-                        </li>
-                        <li>
-                          <div>
-                            Name:
-                            <span class="fw-bold no-underline"> {e.name} </span>
-                          </div>
-                        </li>
-                        <li>
-                          <div>
-                            Email:
-                            <span class="fw-bold no-underline">
-                              {" "}
-                              {e.email}{" "}
-                            </span>
-                          </div>
-                        </li>
-                        <li>
-                          <div>
-                            VAT Number:
-                            <span class="fw-bold no-underline">
-                              {" "}
-                              {e.vat_number}
-                            </span>
-                          </div>
-                        </li>
-                      </ul>
-                    </h5>
-                  </div>
-                </div>
-
-                <div class="d-flex flex-row justify-content-center bd-highlight m-2 border-orange ">
-                  <div class="d-flex flex-column bd-highlight m-2 border-purple">
+                <div class="d-flex flex-row justify-content-left bd-highlight m-2 border-orange ">
+                  <div class="d-flex flex-column bd-highlight mb-3 border-purple">
                     <div>
                       <img src={ava7} alt="avatar" class="contact-image-xl" />
                     </div>
                   </div>
+                </div>
+
+                <div class="d-flex flex-row justify-content-end bd-highlight m-2 border-orange ">
+                  <div class="d-flex flex-column bd-highlight m-2 border-purple"></div>
                 </div>
               </div>
 
