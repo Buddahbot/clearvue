@@ -1,0 +1,89 @@
+body {
+  background-color: #ffffff;
+}
+
+.body-purple {
+  background-color: #99ddff;
+}
+
+.navbar-custom {
+  background-color: orange;
+}
+
+.contact-image {
+  width: 150px;
+  border-radius: 50%;
+}
+
+.contact-image-xl {
+  width: 200px;
+  border-radius: 50%;
+}
+
+/* .border-orange {
+  border: solid 3px orange;
+}
+
+.border-green {
+  border: solid 3px green;
+}
+
+.border-purple {
+  border: solid 3px purple;
+}
+
+.body-grey {
+  background-color: #3fd2c7;
+} */
+
+.nav {
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 2%;
+  background-color: #00458b;
+}
+
+.nav > button {
+  background-color: #f2f2f2;
+  padding: 10px;
+  border: none;
+  border-radius: 7px;
+  margin-right: 23px;
+}
+
+#no-underline {
+  text-decoration: none;
+}
+
+.textcolorblue {
+  color: 00458b;
+}
+
+.textcustomblue {
+  color: #00458b;
+}
+.textcustomwhite {
+  color: white;
+}
+
+.btn-danger {
+  background-color: #8b0045;
+}
+
+.btn-success {
+  background-color: #00458b;
+}
+
+.card-radius {
+  border-radius: 7%;
+}
+
+.no-underline {
+  text-decoration: none;
+}
+
+hr {
+  border-color: #8b0045 !important;
+  height: 5px !important;
+  max-width: 620px !important;
+}
