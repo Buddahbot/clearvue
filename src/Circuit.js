@@ -1,11 +1,5 @@
 import { Link, useParams, useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import { userDetails } from "./UserFunctions";
-import { siteDetails } from "./UserFunctions";
-import { meterDetails } from "./UserFunctions";
-import { singleSiteDetails } from "./UserFunctions";
-import { userUpdate } from "./UserFunctions";
-import { singleMeterDetails } from "./UserFunctions";
 import { singleCircuitDetails } from "./UserFunctions";
 import { circuitChildren } from "./UserFunctions";
 import Navbar from "./Navbar";
@@ -16,14 +10,10 @@ import axios from "axios";
 const Circuit = () => {
   const { meterId, circuitId } = useParams();
   const [isLoading, setIsLoading] = useState(true);
-  const [userDetail, setUserDetail] = useState([]);
-  const [userDetailUpdate, setUserDetailUpdate] = useState([]);
   const [name, setName] = useState([]);
   const [userName, setUserName] = useState([]);
   const [userSerialNumber, setUserSerialNumber] = useState([]);
   const [userInstallationDate, setUserInstallationDate] = useState([]);
-  const [startDate, setStartDate] = useState("");
-  const [userCircuitId, setUserCircuitId] = useState([]);
   const [userCircuitName, setUserCircuitName] = useState([]);
   const [userIsMain, setUserIsMain] = useState(Boolean);
   const [userInstallationDateCircuit, setUserInstallationDateCircuit] =
@@ -34,6 +24,7 @@ const Circuit = () => {
   const [oneCircuit, setOneCircuit] = useState([]);
 
   let navigate = useNavigate();
+
   //////////// Get 1 circuit of 1 meter
   useEffect(() => {
     const fetchData = async () => {
@@ -44,7 +35,7 @@ const Circuit = () => {
     };
     fetchData().catch(console.error);
   }, []);
-  console.log(circuitId);
+
   ////////// Get all meters from site
   useEffect(() => {
     const fetchData = async () => {
@@ -134,76 +125,77 @@ const Circuit = () => {
         return (
           <div>
             <div class="d-flex flex-row justify-content-space-around  mt-5 border-orange ">
-              <div class="d-flex flex-column w-20 bd-highlight m-2 pt-4 border-green">
-                <ul>
-                  <h2> Your Circuit</h2>
-                </ul>
-                <button
-                  class="btn btn-sm btn-danger mt-3 mb-3"
-                  onClick={clickyDelete}
-                >
-                  Delete Circuit
-                </button>
-                <h5>
-                  {" "}
-                  <ul>
-                    <li>
-                      <div>
-                        Meter Id:
-                        <span class="fw-bold no-underline"> {e.meter_id}</span>
-                      </div>
-                    </li>
-                    <li>
-                      <div>
-                        Circuit Id:
-                        <span class="fw-bold no-underline">
-                          {" "}
-                          {e.circuit_id}{" "}
-                        </span>
-                      </div>
-                    </li>
-                    <li>
-                      <div>
-                        Name:
-                        <span class="fw-bold no-underline"> {e.name} </span>
-                      </div>
-                    </li>
-                    <li>
-                      <div>
-                        Installation Date:
-                        <span class="fw-bold no-underline">
-                          {" "}
-                          {e.installation_date}
-                        </span>
-                      </div>
-                    </li>
-                    <li>
-                      <div>
-                        Is Main Circuit:
-                        <span class="fw-bold no-underline"></span>
-                      </div>
-                    </li>
-                  </ul>
-                </h5>
-              </div>
+              <div class="d-flex flex-column w-15 bd-highlight m-2 pt-4 border-green"></div>
             </div>
-            <form onSubmit={clickyUpdateCircuit}>
-              <div class="d-flex flex-row justify-content-around bd-highlight m-2 border-orange ">
-                <div class="d-flex flex-column w-50 bd-highlight m-2 border-green">
-                  <div class="d-flex flex-row justify-content-left bd-highlight m-2 border-orange ">
-                    <div class="d-flex flex-column bd-highlight mb-3 border-purple">
-                      <div>
-                        <img src={ava7} alt="avatar" class="contact-image-xl" />
-                      </div>
-                    </div>
-                  </div>
 
-                  <div class="d-flex flex-row justify-content-end bd-highlight m-2 border-orange ">
-                    <div class="d-flex flex-column bd-highlight m-2 border-purple"></div>
+            <div class="d-flex flex-row justify-content-around bd-highlight m-2 border-orange ">
+              <div class="d-flex flex-column w-50 bd-highlight m-2 border-green">
+                <div class="d-flex flex-row justify-content-center bd-highlight m-2 border-orange ">
+                  <div class="d-flex flex-column bd-highlight mt-4 border-purple">
+                    <button
+                      class="btn btn-sm btn-danger mt-3 mb-3"
+                      onClick={clickyDelete}
+                    >
+                      Delete Circuit
+                    </button>
+                    <h5>
+                      {" "}
+                      <ul>
+                        <li>
+                          <div>
+                            Circuit Id:
+                            <span class="fw-bold no-underline">
+                              {" "}
+                              {e.circuit_id}{" "}
+                            </span>
+                          </div>
+                        </li>
+                        <li>
+                          <div>
+                            Meter Id:
+                            <span class="fw-bold no-underline">
+                              {" "}
+                              {e.meter_id}
+                            </span>
+                          </div>
+                        </li>
+                        <li>
+                          <div>
+                            Name:
+                            <span class="fw-bold no-underline"> {e.name} </span>
+                          </div>
+                        </li>
+                        <li>
+                          <div>
+                            Installation Date:
+                            <span class="fw-bold no-underline">
+                              {" "}
+                              {e.installation_date}
+                            </span>
+                          </div>
+                        </li>
+                        <li>
+                          <div>
+                            Is Main Circuit:
+                            <span class="fw-bold no-underline"></span>
+                          </div>
+                        </li>
+                      </ul>
+                    </h5>
                   </div>
                 </div>
 
-                <div class="d-flex flex-column w-100 bd-highlight m-2 border-green">
+                <div class="d-flex flex-row justify-content-center bd-highlight m-2 border-orange ">
+                  <div class="d-flex flex-column bd-highlight m-2 border-purple">
+                    <div>
+                      <img src={ava7} alt="avatar" class="contact-image-xl" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex flex-column w-100 bd-highlight justify-content-between m-2 border-green">
+                <form onSubmit={clickyUpdateCircuit}>
                   <div class="d-flex flex-row bd-highlight m-2  border-orange ">
                     <div class="d-flex flex-column w-50 bd-highlight m-2 border-purple">
                       <div>
@@ -239,7 +231,7 @@ const Circuit = () => {
                               onChange={(e) =>
                                 setUserInstallationDate(e.target.value)
                               }
-                              placeholder="Meter Installation Date"
+                              placeholder="Circuit Installation Date"
                               required
                             />
                           </div>
@@ -252,33 +244,27 @@ const Circuit = () => {
                       </button>
                     </div>
                   </div>
-                  <div class="d-flex flex-row justify-content-center bd-highlight m-2 border-orange">
-                    <div class="d-flex flex-column  bd-highlight m-2 border-green"></div>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-        );
-      })}
-      <div class="d-flex flex-row justify-content-center bd-highlight m-2 border-orange ">
-        <div class="d-flex flex-column w-50 bd-highlight pl-3 border-green">
-          <h2> Add a curcuit to this circuit</h2>
+                </form>
 
-          <h3>
-            <div>
-              <div>
                 <form onSubmit={clickyAddCircuit}>
-                  <input
-                    type="text"
-                    name="CircuitName"
-                    placeholder="Circuit Name "
-                    value={userCircuitName}
-                    class="form-control"
-                    required
-                    onChange={(e) => setUserCircuitName(e.target.value)}
-                  />
-                  {/* <input
+                  <div class="d-flex flex-row bd-highlight m-2 pb-2 border-orange ">
+                    <div class="d-flex flex-column w-50 bd-highlight m-2 border-purple">
+                      <div>
+                        <div>
+                          <div class="card my-2 list-group-item  ">
+                            <div class="card-body">
+                              <input
+                                type="text"
+                                name="CircuitName"
+                                placeholder="Circuit Name "
+                                value={userCircuitName}
+                                class="form-control"
+                                required
+                                onChange={(e) =>
+                                  setUserCircuitName(e.target.value)
+                                }
+                              />
+                              {/* <input
                         type="text"
                         name="SerialNumber"
                         placeholder="Serial Number"
@@ -287,44 +273,85 @@ const Circuit = () => {
                         required
                         onChange={(e) => setUserIsMain(e.target.value)}
                       /> */}
-                  <select
-                    onChange={(e) => setUserIsMain(e.target.value)}
-                    value={userIsMain}
-                    name="selectList"
-                    id="selectList"
-                  >
-                    <option value="true">Is Main Circuit</option> {" "}
-                    <option value="false">Is Not Main Circuit</option>
-                  </select>
-                  <div class="form-group">
-                    <input
-                      type="text"
-                      class="form-control   inputbg-home"
-                      value={userInstallationDateCircuit}
-                      onFocus={(e) => (e.target.type = "datetime-local")}
-                      onChange={(e) =>
-                        setUserInstallationDateCircuit(e.target.value)
-                      }
-                      placeholder="Installation Date"
-                      required
-                    />
+                              <select
+                                onChange={(e) => setUserIsMain(e.target.value)}
+                                value={userIsMain}
+                                name="selectList"
+                                id="selectList"
+                              >
+                                <option value="true">Is Main Circuit</option> {" "}
+                                <option value="false">
+                                  Is Not Main Circuit
+                                </option>
+                              </select>
+                              <div class="form-group">
+                                <input
+                                  type="text"
+                                  class="form-control   inputbg-home"
+                                  value={userInstallationDateCircuit}
+                                  onFocus={(e) =>
+                                    (e.target.type = "datetime-local")
+                                  }
+                                  onChange={(e) =>
+                                    setUserInstallationDateCircuit(
+                                      e.target.value
+                                    )
+                                  }
+                                  placeholder="Installation Date"
+                                  required
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="d-flex flex-column bd-highlight pt-4 m-2 border-purple">
+                      <button class="btn btn-sm btn-success" type="submit">
+                        Add Circuit
+                      </button>
+                    </div>
                   </div>
-                  <button
-                    class="btn btn-sm btn-success"
-                    // onClick={dateHandler}
-                    type="submit"
-                  >
-                    Add Circuit
-                  </button>
                 </form>
               </div>
             </div>
-          </h3>
+          </div>
+        );
+      })}
+
+      <div class="d-flex flex-row justify-content-center  bd-highlight m-2 border-orange ">
+        <div class="d-flex flex-column w-50 bd-highlight pl-5 border-green">
+          <h3></h3>
         </div>
         <div class="d-flex flex-column bd-highlight pl-3 border-green"></div>
       </div>
-      <h3>Your Circuits</h3>
-      <div></div>
+      {/* <h3>Your Circuits</h3>
+      <div class="container">
+        <table class="table table-condensed">
+          <thead>
+            <tr>
+              <th> Circuit Id</th>
+              <th> Meter Id</th>
+              <th> Circuit Name</th>
+              <th> Is Main Circuit</th>
+              <th> Installation Date</th>
+            </tr>
+          </thead>
+          {circuitDetail.map((e) => (
+            <tbody>
+              <tr>
+                <Link to={`../circuit/one/${e.meter_id}/${e.circuit_id}`}>
+                  <td> {e.circuit_id} </td>
+                </Link>
+                <td> {e.meter_id} </td>
+                <td> {e.name} </td>
+                <td> {e.is_main} </td>
+                <td> {e.installation_date} </td>
+              </tr>
+            </tbody>
+          ))}
+        </table>
+      </div> */}
     </>
   );
 };

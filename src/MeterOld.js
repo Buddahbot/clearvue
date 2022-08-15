@@ -1,8 +1,10 @@
 import { Link, useParams, useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { circuitDetails } from "./UserFunctions";
+import { userUpdate } from "./UserFunctions";
 import { singleMeterDetails } from "./UserFunctions";
 import ava7 from "./images/ava10.jpeg";
+
 import Navbar from "./Navbar";
 import axios from "axios";
 
@@ -124,89 +126,86 @@ const Meter = () => {
         return (
           <div>
             <div class="d-flex flex-row justify-content-space-around  mt-5 border-orange ">
-              <div class="d-flex flex-column w-15 bd-highlight m-2 pt-4 border-green"></div>
+              <div class="d-flex flex-column w-20 bd-highlight m-2 pt-4 border-green">
+                <ul>
+                  <h2> Your Meter</h2>
+                </ul>
+                <button
+                  class="btn btn-sm btn-danger mt-3 mb-3"
+                  onClick={clickyDelete}
+                >
+                  Delete Meter
+                </button>
+
+                <h5>
+                  {" "}
+                  <ul>
+                    <li>
+                      <div>
+                        Customer Id:
+                        <span class="fw-bold no-underline">
+                          {" "}
+                          {e.customer_id}
+                        </span>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        Site Id:
+                        <span class="fw-bold no-underline"> {e.site_id} </span>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        Name:
+                        <span class="fw-bold no-underline"> {e.name} </span>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        Serial Number:
+                        <span class="fw-bold no-underline">
+                          {" "}
+                          {e.serial_number}
+                        </span>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        Meter id:
+                        <span class="fw-bold no-underline"> {e.meter_id}</span>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        Installation Date:
+                        <span class="fw-bold no-underline">
+                          {" "}
+                          {e.installation_date}
+                        </span>
+                      </div>
+                    </li>
+                  </ul>
+                </h5>
+              </div>
             </div>
-
-            <div class="d-flex flex-row justify-content-around bd-highlight m-2 border-orange ">
-              <div class="d-flex flex-column w-50 bd-highlight m-2 border-green">
-                <div class="d-flex flex-row justify-content-center bd-highlight m-2 border-orange ">
-                  <div class="d-flex flex-column bd-highlight mt-4 border-purple">
-                    <button
-                      class="btn btn-sm btn-danger mt-3 mb-3"
-                      onClick={clickyDelete}
-                    >
-                      Delete Meter
-                    </button>
-                    <h5>
-                      {" "}
-                      <ul>
-                        <li>
-                          <div>
-                            Customer Id:
-                            <span class="fw-bold no-underline">
-                              {" "}
-                              {e.customer_id}
-                            </span>
-                          </div>
-                        </li>
-                        <li>
-                          <div>
-                            Site Id:
-                            <span class="fw-bold no-underline">
-                              {" "}
-                              {e.site_id}{" "}
-                            </span>
-                          </div>
-                        </li>
-                        <li>
-                          <div>
-                            Name:
-                            <span class="fw-bold no-underline"> {e.name} </span>
-                          </div>
-                        </li>
-                        <li>
-                          <div>
-                            Serial Number:
-                            <span class="fw-bold no-underline">
-                              {" "}
-                              {e.serial_number}
-                            </span>
-                          </div>
-                        </li>
-                        <li>
-                          <div>
-                            Meter id:
-                            <span class="fw-bold no-underline">
-                              {" "}
-                              {e.meter_id}
-                            </span>
-                          </div>
-                        </li>
-                        <li>
-                          <div>
-                            Installation Date:
-                            <span class="fw-bold no-underline">
-                              {" "}
-                              {e.installation_date}
-                            </span>
-                          </div>
-                        </li>
-                      </ul>
-                    </h5>
-                  </div>
-                </div>
-
-                <div class="d-flex flex-row justify-content-center bd-highlight m-2 border-orange ">
-                  <div class="d-flex flex-column bd-highlight m-2 border-purple">
-                    <div>
-                      <img src={ava7} alt="avatar" class="contact-image-xl" />
+            <form onSubmit={clickyUpdateMeter}>
+              <div class="d-flex flex-row justify-content-around bd-highlight m-2 border-orange ">
+                <div class="d-flex flex-column w-50 bd-highlight m-2 border-green">
+                  <div class="d-flex flex-row justify-content-left bd-highlight m-2 border-orange ">
+                    <div class="d-flex flex-column bd-highlight mb-3 border-purple">
+                      <div>
+                        <img src={ava7} alt="avatar" class="contact-image-xl" />
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
 
-              <div class="d-flex flex-column w-100 bd-highlight justify-content-between m-2 border-green">
-                <form onSubmit={clickyUpdateMeter}>
+                  <div class="d-flex flex-row justify-content-end bd-highlight m-2 border-orange ">
+                    <div class="d-flex flex-column bd-highlight m-2 border-purple"></div>
+                  </div>
+                </div>
+
+                <div class="d-flex flex-column w-100 bd-highlight m-2 border-green">
                   <div class="d-flex flex-row bd-highlight m-2  border-orange ">
                     <div class="d-flex flex-column w-50 bd-highlight m-2 border-purple">
                       <div>
@@ -255,27 +254,35 @@ const Meter = () => {
                       </button>
                     </div>
                   </div>
-                </form>
-
+                  <div class="d-flex flex-row justify-content-center bd-highlight m-2 border-orange">
+                    <div class="d-flex flex-column  bd-highlight m-2 border-green"></div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        );
+      })}
+      <div class="d-flex flex-row justify-content-center bd-highlight m-2 border-orange ">
+        <div class="d-flex flex-column w-50 bd-highlight pl-3 border-green">
+          <h2> Add a curcuit to this meter</h2>
+          <h3>
+            {/* {oneMeter.map((e) => {
+              return ( */}
+            <div>
+              <p></p>
+              <div>
                 <form onSubmit={clickyAddCircuit}>
-                  <div class="d-flex flex-row bd-highlight m-2 pb-2 border-orange ">
-                    <div class="d-flex flex-column w-50 bd-highlight m-2 border-purple">
-                      <div>
-                        <div>
-                          <div class="card my-2 list-group-item  ">
-                            <div class="card-body">
-                              <input
-                                type="text"
-                                name="CircuitName"
-                                placeholder="Circuit Name "
-                                value={userCircuitName}
-                                class="form-control"
-                                required
-                                onChange={(e) =>
-                                  setUserCircuitName(e.target.value)
-                                }
-                              />
-                              {/* <input
+                  <input
+                    type="text"
+                    name="CircuitName"
+                    placeholder="Circuit Name "
+                    value={userCircuitName}
+                    class="form-control"
+                    required
+                    onChange={(e) => setUserCircuitName(e.target.value)}
+                  />
+                  {/* <input
                         type="text"
                         name="SerialNumber"
                         placeholder="Serial Number"
@@ -284,55 +291,41 @@ const Meter = () => {
                         required
                         onChange={(e) => setUserIsMain(e.target.value)}
                       /> */}
-                              <select
-                                onChange={(e) => setUserIsMain(e.target.value)}
-                                value={userIsMain}
-                                name="selectList"
-                                id="selectList"
-                              >
-                                <option value="true">Is Main Circuit</option> {" "}
-                                <option value="false">
-                                  Is Not Main Circuit
-                                </option>
-                              </select>
-                              <div class="form-group">
-                                <input
-                                  type="text"
-                                  class="form-control   inputbg-home"
-                                  value={userInstallationDateCircuit}
-                                  onFocus={(e) =>
-                                    (e.target.type = "datetime-local")
-                                  }
-                                  onChange={(e) =>
-                                    setUserInstallationDateCircuit(
-                                      e.target.value
-                                    )
-                                  }
-                                  placeholder="Installation Date"
-                                  required
-                                />
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="d-flex flex-column bd-highlight pt-4 m-2 border-purple">
-                      <button class="btn btn-sm btn-success" type="submit">
-                        Add Circuit
-                      </button>
-                    </div>
+                  <select
+                    onChange={(e) => setUserIsMain(e.target.value)}
+                    value={userIsMain}
+                    name="selectList"
+                    id="selectList"
+                  >
+                    <option value="true">Is Main Circuit</option> {" "}
+                    <option value="false">Is Not Main Circuit</option>
+                  </select>
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      class="form-control   inputbg-home"
+                      value={userInstallationDateCircuit}
+                      onFocus={(e) => (e.target.type = "datetime-local")}
+                      onChange={(e) =>
+                        setUserInstallationDateCircuit(e.target.value)
+                      }
+                      placeholder="Installation Date"
+                      required
+                    />
                   </div>
+                  <button
+                    class="btn btn-sm btn-success"
+                    // onClick={dateHandler}
+                    type="submit"
+                  >
+                    Add Circuit
+                  </button>
                 </form>
               </div>
             </div>
-          </div>
-        );
-      })}
-
-      <div class="d-flex flex-row justify-content-center  bd-highlight m-2 border-orange ">
-        <div class="d-flex flex-column w-50 bd-highlight pl-5 border-green">
-          <h3></h3>
+            {/* );
+            })} */}
+          </h3>
         </div>
         <div class="d-flex flex-column bd-highlight pl-3 border-green"></div>
       </div>
@@ -366,4 +359,5 @@ const Meter = () => {
     </>
   );
 };
+
 export default Meter;

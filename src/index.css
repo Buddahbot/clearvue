@@ -87,3 +87,34 @@ hr {
   height: 5px !important;
   max-width: 620px !important;
 }
+
+/* <h3>Your Circuits</h3>
+      <div class="container">
+        <table class="table table-condensed">
+          <thead>
+            <tr>
+              <th> Circuit Id</th>
+              <th> Meter Id</th>
+              <th> Circuit Name</th>
+              <th> Is Main Circuit</th>
+              <th> Installation Date</th>
+            </tr>
+          </thead>
+          {circuitDetail.map((e) => (
+            <tbody>
+              <tr>
+                <Link to={`../circuit/one/${e.meter_id}/${e.circuit_id}`}>
+                  <td> {e.circuit_id} </td>
+                </Link>
+                <td> {e.meter_id} </td>
+                <td> {e.name} </td>
+                <td> {e.is_main} </td>
+                <td> {e.installation_date} </td>
+              </tr>
+            </tbody>
+          ))}
+        </table>
+      </div>
+    </>
+  );
+}; */

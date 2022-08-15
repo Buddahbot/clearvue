@@ -143,82 +143,78 @@ const Site = () => {
         return (
           <div>
             <div class="d-flex flex-row justify-content-space-around  mt-5 border-orange ">
-              <div class="d-flex flex-column w-15 bd-highlight m-2 pt-4 border-green"></div>
-            </div>
+              <div class="d-flex flex-column w-20 bd-highlight m-2 pt-4 border-green">
+                <ul>
+                  <h2> Your Site</h2>
+                </ul>
+                <button
+                  class="btn btn-sm btn-danger mt-3 mb-3"
+                  onClick={clickyDelete}
+                >
+                  Delete Site
+                </button>
 
+                <h5>
+                  {" "}
+                  <ul>
+                    <li>
+                      <div>
+                        Customer Id:
+                        <span class="fw-bold no-underline">
+                          {" "}
+                          {e.customer_id}
+                        </span>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        Site Id:
+                        <span class="fw-bold no-underline"> {e.site_id} </span>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        Name:
+                        <span class="fw-bold no-underline"> {e.name} </span>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        Coordinates:
+                        <span class="fw-bold no-underline">
+                          {" "}
+                          {e.coordinates}
+                        </span>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        Address:
+                        <span class="fw-bold no-underline"> {e.address}</span>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        Post Code:
+                        <span class="fw-bold no-underline"> {e.post_code}</span>
+                      </div>
+                    </li>
+                  </ul>
+                </h5>
+              </div>
+            </div>
             <div class="d-flex flex-row justify-content-around bd-highlight m-2 border-orange ">
               <div class="d-flex flex-column w-50 bd-highlight m-2 border-green">
-                <div class="d-flex flex-row justify-content-center bd-highlight m-2 border-orange ">
-                  <div class="d-flex flex-column bd-highlight mt-4 border-purple">
-                    <button
-                      class="btn btn-sm btn-danger mt-3 mb-3"
-                      onClick={clickyDelete}
-                    >
-                      Delete Site
-                    </button>
-                    <h5>
-                      {" "}
-                      <ul>
-                        <li>
-                          <div>
-                            Site Id:
-                            <span class="fw-bold no-underline">
-                              {e.site_id}{" "}
-                            </span>
-                          </div>
-                        </li>
-                        <li>
-                          <div>
-                            Customer Id:
-                            <span class="fw-bold no-underline">
-                              {" "}
-                              {e.customer_id}{" "}
-                            </span>
-                          </div>
-                        </li>
-                        <li>
-                          <div>
-                            Name:
-                            <span class="fw-bold no-underline"> {e.name} </span>
-                          </div>
-                        </li>
-                        <li>
-                          <div>
-                            Coordinates:
-                            <span class="fw-bold no-underline">
-                              {" "}
-                              {e.coordinates}
-                            </span>
-                          </div>
-                        </li>
-                        <li>
-                          <div>
-                            Address:
-                            <span class="fw-bold no-underline">
-                              {" "}
-                              {e.address}
-                            </span>
-                          </div>
-                        </li>
-                        <li>
-                          <div>
-                            Post Code:
-                            <span class="fw-bold no-underline">
-                              {" "}
-                              {e.post_code}
-                            </span>
-                          </div>
-                        </li>
-                      </ul>
-                    </h5>
-                  </div>
-                </div>
-                <div class="d-flex flex-row justify-content-center bd-highlight m-2 border-orange ">
-                  <div class="d-flex flex-column bd-highlight m-2 border-purple">
+                <div class="d-flex flex-row justify-content-left bd-highlight m-2 border-orange ">
+                  <div class="d-flex flex-column bd-highlight mb-3 border-purple">
                     <div>
                       <img src={ava7} alt="avatar" class="contact-image-xl" />
                     </div>
                   </div>
+                </div>
+
+                <div class="d-flex flex-row justify-content-end bd-highlight m-2 border-orange ">
+                  <div class="d-flex flex-column bd-highlight m-2 border-purple"></div>
                 </div>
               </div>
 
@@ -274,15 +270,15 @@ const Site = () => {
 
                     <div class="d-flex flex-column bd-highlight pt-4 m-2 border-purple">
                       <button class="btn btn-sm btn-success" type="submit">
-                        Update Site
+                        Update Customer
                       </button>
                     </div>
                   </div>
                 </form>
 
                 <form onSubmit={clickyAddMeter}>
-                  <div class="d-flex flex-row bd-highlight ml-2 mr-2 mb-2 mt-5  border-orange ">
-                    <div class="d-flex flex-column w-50 bd-highlight p-4 m-2 border-purple">
+                  <div class="d-flex flex-row bd-highlight m-2  border-orange ">
+                    <div class="d-flex flex-column w-50 bd-highlight m-2 border-purple">
                       <div>
                         <div>
                           <div class="card my-2 list-group-item  ">
@@ -325,9 +321,9 @@ const Site = () => {
                       </div>
                     </div>
 
-                    <div class="d-flex flex-column bd-highlight justify-content-center pb-5  m-2 border-purple">
+                    <div class="d-flex flex-column bd-highlight pt-4 m-2 border-purple">
                       <button class="btn btn-sm btn-success" type="submit">
-                        Add Meter
+                        Add Site
                       </button>
                     </div>
                   </div>
